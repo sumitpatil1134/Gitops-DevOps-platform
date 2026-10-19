@@ -1,0 +1,14 @@
+{
+  "name": "gitops-devops-platform",
+  "version": "1.0.0",
+  "private": true,
+  "description": "A lightweight GitOps demonstration API",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js",
+    "test": "node --test"
+  },
+  "dependencies": {
+    "prom-client": "^15.1.3"
+  }
+}

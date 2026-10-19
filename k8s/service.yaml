@@ -1,0 +1,27 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: gitops-api
+  labels:
+    app: gitops-api
+spec:
+  type: ClusterIP
+  selector:
+    app: gitops-api
+  ports:
+    - name: http
+      port: 3000
+      targetPort: httpapiVersion: v1
+kind: Service
+metadata:
+  name: gitops-api
+  labels:
+    app: gitops-api
+spec:
+  type: ClusterIP
+  selector:
+    app: gitops-api
+  ports:
+    - name: http
+      port: 3000
+      targetPort: http

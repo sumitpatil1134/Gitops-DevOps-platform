@@ -1,0 +1,83 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: gitops-api
+  labels:
+    app: gitops-api
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: gitops-api
+  template:
+    metadata:
+      labels:
+        app: gitops-api
+    spec:
+      containers:
+        - name: api
+          image: gitops-devops-platform:local
+          imagePullPolicy: IfNotPresent
+          ports:
+            - name: http
+              containerPort: 3000
+          readinessProbe:
+            httpGet:
+              path: /health
+              port: http
+            initialDelaySeconds: 3
+            periodSeconds: 10
+          livenessProbe:
+            httpGet:
+              path: /health
+              port: http
+            initialDelaySeconds: 10
+            periodSeconds: 20
+          resources:
+            requests:
+              cpu: 50m
+              memory: 64Mi
+            limits:
+              cpu: 250m
+              memory: 128MiapiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: gitops-api
+  labels:
+    app: gitops-api
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: gitops-api
+  template:
+    metadata:
+      labels:
+        app: gitops-api
+    spec:
+      containers:
+        - name: api
+          image: gitops-devops-platform:local
+          imagePullPolicy: IfNotPresent
+          ports:
+            - name: http
+              containerPort: 3000
+          readinessProbe:
+            httpGet:
+              path: /health
+              port: http
+            initialDelaySeconds: 3
+            periodSeconds: 10
+          livenessProbe:
+            httpGet:
+              path: /health
+              port: http
+            initialDelaySeconds: 10
+            periodSeconds: 20
+          resources:
+            requests:
+              cpu: 50m
+              memory: 64Mi
+            limits:
+              cpu: 250m
+              memory: 128Mi
